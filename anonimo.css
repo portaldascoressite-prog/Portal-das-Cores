@@ -1,0 +1,298 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #ffffff;
+  color: #222222;
+  line-height: 1.6;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: #dddddd;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header .logo img {
+  height: 40px;
+}
+
+header .logo span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #de1e1e;
+  text-transform: uppercase;
+}
+
+
+.menu-direita {
+  display: flex;
+  align-items: center;
+  gap: 25px; 
+}
+
+header nav a {
+  margin-left: 20px;
+  color: #333333;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+header nav a:hover {
+  color: #de1e1e;
+}
+
+
+main {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 60px 50px;
+  flex-wrap: wrap;
+  flex: 1; 
+}
+
+h1, h2 {
+  color: #000000;
+}
+
+
+footer {
+  background: #dddddd;
+  border-top: 1px solid #ccc;
+  padding: 15px 50px;
+  text-align: center;
+  color: #333333;
+  font-size: 1rem;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+
+.anonimo-links {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+
+.anonimo-links h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.anonimo-descricao {
+  color: #555;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+}
+
+.postit-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.postit {
+  background-color: #ffc; 
+  padding: 30px;
+  width: 100%;
+  max-width: 400px; 
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+  transform: rotate(2deg);
+  border-top: 5px solid #ff0; 
+  transition: all 0.3s ease;
+}
+
+.postit:hover {
+  transform: rotate(0deg) scale(1.02); 
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.postit h3 {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 15px;
+  border-bottom: 1px dashed #ccc;
+  padding-bottom: 5px;
+}
+
+.postit textarea {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  font-size: 1.1rem;
+  resize: vertical; 
+  outline: none; 
+}
+
+.postit-btn {
+  background-color: #4CAF50; 
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.postit-btn:hover {
+  background-color: #45a049;
+}
+
+
+.menu-toggle {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 15px 20px;
+  }
+
+  .menu-direita {
+    flex-direction: row-reverse;
+    gap: 10px;
+  }
+  
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+    width: 25px;
+    cursor: pointer;
+  }
+
+  .menu-toggle .bar {
+    height: 3px;
+    background-color: #333;
+    transition: 0.3s;
+  }
+
+  header nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+    transition: max-height 0.3s ease-out;
+    max-height: 0;
+    overflow: hidden;
+  }
+  
+  header nav.active {
+    display: flex;
+    max-height: 200px;
+  }
+
+  header nav a {
+    margin: 10px 0;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+  }
+
+  header nav a:last-child {
+    border-bottom: none;
+  }
+
+  main {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  header nav a {
+    margin: 0 5px;
+    font-size: 0.9rem;
+  }
+
+  .postit {
+    max-width: 90%; 
+    padding: 20px;
+    transform: rotate(0deg); 
+  }
+}
+
+
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode header {
+  background: #1e1e1e;
+  border-bottom: 1px solid #333;
+}
+
+body.dark-mode footer {
+  background: #1e1e1e;
+  border-top: 1px solid #333;
+  color: #ccc;
+}
+
+body.dark-mode nav a {
+  color: #ddd;
+}
+
+body.dark-mode nav a:hover {
+  color: #ff5252;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode .anonimo-descricao {
+  color: #e0e0e0;
+}
+
+body.dark-mode .postit {
+  background-color: #ffc;
+  border-top: 5px solid #ff0;
+  color: #f1f1f1;
+}
+
+
+.theme-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 15px;
+  transition: transform 0.2s;
+}
+
+.theme-btn:hover {
+  transform: scale(1.2);
+}

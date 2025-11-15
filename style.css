@@ -1,0 +1,566 @@
+/* =======================================================
+   ESTILOS GERAIS E COMPARTILHADOS (APLICAM-SE A TODAS AS PÁGINAS)
+   ======================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  color: #222222;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: #dddddd;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header .logo img {
+  height: 40px;
+}
+
+header .logo span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #de1e1e;
+  text-transform: uppercase;
+}
+
+header nav a {
+  margin-left: 20px;
+  color: #333333;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+header nav a:hover {
+  color: #de1e1e;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 60px 50px;
+  flex-wrap: wrap;
+}
+
+h1, h2 {
+  color: #000000;
+}
+
+/* Footer */
+footer {
+  background: #dddddd;
+  border-top: 1px solid #ccc;
+  padding: 15px 50px;
+  text-align: center;
+  color: #333333;
+  font-size: 1rem;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* =======================================================
+   ESTILOS DA PÁGINA INICIAL (index.html)
+   ======================================================= */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 600px;
+}
+
+.info {
+  text-align: center;
+}
+
+.info .tag {
+  background: #de1e1e;
+  color: #fff;
+  font-size: 0.9rem;
+  padding: 5px 12px;
+  border-radius: 15px;
+}
+
+.info h1 {
+  font-size: 2.5rem;
+  margin: 20px 0 10px;
+}
+
+.info h1 span {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: normal;
+  color: #555555;
+  margin-top: 5px;
+}
+
+.info p {
+  font-size: 1.2rem;
+  color: #555555;
+  margin-top: 10px;
+}
+
+.ler-mais-btn {
+  background-color: #de1e1e;
+  color: #ffffff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.ler-mais-btn:hover {
+  background-color: #c91b1b;
+}
+
+.hero-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    max-width: 400px;
+}
+
+.hero-img img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.sobre {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.sobre h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.sobre p {
+  font-size: 1.3rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Estilos da nova galeria de fotos (Carrossel) */
+.galeria-fotos {
+  padding: 60px 50px;
+  text-align: center;
+}
+
+.galeria-fotos h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.carrossel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    height: 350px; /* Altura diminuída para 350px */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.carrossel-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carrossel-img.active {
+    opacity: 1;
+}
+
+.videos {
+  padding: 60px 50px;
+  text-align: center;
+}
+
+.videos h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.video-card {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #000;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.video-card iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* =======================================================
+   ESTILOS DA PÁGINA DE CONTATO (contato.html)
+   ======================================================= */
+.contato-links {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contato-links h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.contato-links p {
+  color: #555;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.social-icons li {
+    margin: 0 15px;
+}
+
+.social-icons li a img {
+    height: 40px;
+    transition: transform 0.3s;
+}
+
+.social-icons li a img:hover {
+    transform: scale(1.1);
+}
+
+/* =======================================================
+   ESTILOS DA PÁGINA DE LOCALIZAÇÃO (enderecos.html)
+   ======================================================= */
+.localizacao {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.localizacao h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.localizacao h2 {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.mapa {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.mapa iframe {
+  width: 100%;
+  height: 450px;
+  border: none;
+  border-radius: 8px;
+}
+
+/* =======================================================
+   ESTILOS DA PÁGINA DE MENSAGEM ANÔNIMA (anonimo.html)
+   ======================================================= */
+.anonimo-links {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+.anonimo-links h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.anonimo-descricao {
+    color: #555;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+.postit-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    
+}
+
+.postit {
+    /* Dimensões e Efeito de Post-it */
+    background-color: #ffc; /* Amarelo clássico do Post-it */
+    padding: 30px;
+    width: 100%;
+    max-width: 400px; /* Limita o tamanho máximo do Post-it */
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    
+    /* Rotação sutil para parecer um adesivo colado */
+    transform: rotate(2deg);
+    
+    /* Adiciona uma borda superior que simula a cola */
+    border-top: 5px solid #ff0; 
+}
+
+.postit:hover {
+    transform: rotate(0deg) scale(1.02); /* Efeito ao passar o mouse */
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.postit h3 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 15px;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 5px;
+}
+
+.postit textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    font-size: 1.1rem;
+    resize: vertical; /* Permite redimensionar apenas verticalmente */
+    outline: none; /* Remove a borda azul ao focar */
+}
+
+.postit-btn {
+    background-color: #4CAF50; /* Botão Verde */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.postit-btn:hover {
+    background-color: #45a049;
+}
+
+/* Responsividade para o Post-it em telas menores */
+@media (max-width: 480px) {
+    .postit {
+        max-width: 90%; /* Ocupa 90% da largura em telas pequenas */
+        padding: 20px;
+        transform: rotate(0deg); /* Remove a rotação em telas pequenas para melhor leitura */
+    }
+}
+
+
+/* =======================================================
+   ESTILOS RESPONSIVOS PARA TELAS MENORES (HAMBURGER MENU)
+   (BLOCO MANTIDO NO FINAL PARA GARANTIR PRIORIDADE)
+   ======================================================= */
+.menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+        flex-direction: row;
+        padding: 15px 20px;
+    }
+    
+    header .logo {
+        margin-bottom: 0;
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 20px;
+        width: 25px;
+        cursor: pointer;
+    }
+
+    .menu-toggle .bar {
+        height: 3px;
+        background-color: #333;
+        transition: 0.3s;
+    }
+
+    header nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        margin-top: 15px;
+        transition: max-height 0.3s ease-out;
+        max-height: 0;
+        overflow: hidden;
+    }
+    
+    header nav.active {
+        display: flex;
+        max-height: 200px;
+    }
+
+    header nav a {
+        margin: 10px 0;
+        padding: 10px 0;
+        border-bottom: 1px solid #ccc;
+    }
+    header nav a:last-child {
+        border-bottom: none;
+    }
+    
+    main {
+      flex-direction: column;
+      padding: 30px 20px;
+    }
+
+    .info {
+      max-width: 100%;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .info h1 {
+      font-size: 2rem;
+    }
+
+    .info h1 span {
+        font-size: 1.2rem;
+    }
+
+    .hero-img {
+      max-width: 80%;
+    }
+
+    .sobre {
+      padding: 30px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+  header nav a {
+    margin: 0 5px;
+    font-size: 0.9rem;
+  }
+  
+  .contato-links li a {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .mapa iframe {
+    height: 300px;
+  }
+}
+
+/* ==============================
+   🌙 MODO ESCURO
+   ============================== */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode header {
+  background: #1e1e1e;
+  border-bottom: 1px solid #333;
+}
+
+body.dark-mode footer {
+  background: #1e1e1e;
+  border-top: 1px solid #333;
+  color: #ccc;
+}
+
+body.dark-mode nav a {
+  color: #ddd;
+}
+
+body.dark-mode nav a:hover {
+  color: #ff5252;
+}
+
+body.dark-mode .info p,
+body.dark-mode .sobre p,
+body.dark-mode h1,
+body.dark-mode h2 {
+  color: #e0e0e0;
+}
+
+body.dark-mode .mapa {
+  background: #1c1c1c;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .postit {
+  background-color: #444;
+  border-top: 5px solid #666;
+  color: #f1f1f1;
+}
+
+/* Botão de tema */
+.theme-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 15px;
+  transition: transform 0.2s;
+}
+
+.theme-btn:hover {
+  transform: scale(1.2);
+}
