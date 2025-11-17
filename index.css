@@ -221,6 +221,10 @@ footer {
   background-color: #dddddd; /* Mesmo cinza do header */
 }
 
+body.dark-mode .galeria-fotos {
+  background-color: #1e1e1e; /* Cinza escuro igual ao header */
+}
+
 .galeria-fotos h2 {
   font-size: 2rem;
   margin-bottom: 30px;
@@ -390,4 +394,5 @@ body.dark-mode .menu-toggle .bar {
     display: flex;
   }
 }
+
 
