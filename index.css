@@ -218,6 +218,7 @@ footer {
 .galeria-fotos {
   padding: 60px 50px;
   text-align: center;
+  background-color: #dddddd; /* Mesmo cinza do header */
 }
 
 .galeria-fotos h2 {
@@ -389,3 +390,4 @@ body.dark-mode .menu-toggle .bar {
     display: flex;
   }
 }
+
