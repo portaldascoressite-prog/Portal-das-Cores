@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Enriqueta', serif;
 }
 
 html, body {
@@ -18,8 +18,6 @@ body {
   line-height: 1.6;
 }
 
-/* ===================== HEADER ===================== */
-
 header {
   display: flex;
   justify-content: space-between;
@@ -27,10 +25,12 @@ header {
   padding: 15px 50px;
   background: #dddddd;
   border-bottom: 1px solid #ccc;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+}
+
+.menu-direita {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 header .logo {
@@ -50,13 +50,6 @@ header .logo span {
   text-transform: uppercase;
 }
 
-/* ======== MENU À DIREITA (CORRIGIDO) ======== */
-.menu-direita {
-  display: flex;
-  align-items: center;
-  gap: 20px; /* distância entre menu e botão */
-}
-
 header nav {
   display: flex;
   gap: 20px;
@@ -73,7 +66,6 @@ header nav a:hover {
   color: #de1e1e;
 }
 
-/* ===================== MAIN ===================== */
 
 main {
   display: flex;
@@ -88,7 +80,6 @@ h1, h2 {
   color: #000000;
 }
 
-/* ===================== FOOTER ===================== */
 
 footer {
   background: #dddddd;
@@ -101,7 +92,66 @@ footer {
   width: 100%;
 }
 
-/* ===================== SEÇÃO PRINCIPAL ===================== */
+
+@media (max-width: 992px) {
+  header { padding: 15px 30px; }
+  header nav { gap: 15px; }
+  main { padding: 40px 30px; }
+}
+@media (max-width: 768px) {
+  
+  header {
+    padding: 15px 30px;
+  }
+
+  header nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 999;
+  }
+
+  header nav.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  body.dark-mode header nav {
+    background: #1f1f1f;
+  }
+}
+
+
+@media (max-width: 480px) {
+  header { padding: 10px 20px; }
+
+  header .logo span {
+    font-size: 1.2rem;
+  }
+
+  header nav {
+    gap: 10px;
+  }
+
+  main {
+    padding: 20px 15px;
+  }
+
+  footer {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
 
 .main-content {
   display: flex;
@@ -171,7 +221,6 @@ footer {
   border-radius: 10px;
 }
 
-/* ===================== SESSÃO SOBRE ===================== */
 
 #sobre-empresa {
   max-height: 0;
@@ -213,8 +262,6 @@ footer {
   text-align: center;
 }
 
-/* ===================== CARROSSEL ===================== */
-
 .galeria-fotos {
   padding: 60px 50px;
   text-align: center;
@@ -250,8 +297,6 @@ footer {
   opacity: 1;
 }
 
-/* ===================== VÍDEOS ===================== */
-
 .videos {
   padding: 60px 50px;
   text-align: center;
@@ -281,7 +326,6 @@ footer {
   height: 100%;
 }
 
-/* ===================== MODO ESCURO ===================== */
 
 body.dark-mode {
   background-color: #121212;
@@ -307,38 +351,41 @@ body.dark-mode nav a:hover {
   color: #ff5252;
 }
 
-body.dark-mode .info p,
-body.dark-mode .sobre p,
-body.dark-mode h1,
-body.dark-mode h2 {
-  color: #e0e0e0;
-}
-
-body.dark-mode .mapa {
-  background: #1c1c1c;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .postit {
-  background-color: #444;
-  border-top: 5px solid #666;
-  color: #f1f1f1;
-}
-
-/* BOTÃO DO MODO ESCURO */
 .theme-btn {
   background: none;
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  transition: transform 0.2s;
 }
 
 .theme-btn:hover {
   transform: scale(1.2);
 }
+body.dark-mode .sobre h2, body.dark-mode .sobre p, sobre{
+  color: #e0e0e0;
+}
 
-/* ===================== MENU HAMBÚRGUER ===================== */
+body.dark-mode .info h1 {
+    color: #ffffff; 
+}
+
+body.dark-mode .info h1 span {
+    color: #cccccc; 
+}
+
+body.dark-mode .info p {
+    color: #e0e0e0; 
+}
+
+body.dark-mode .info .tag {
+    background-color: #de1e1e; 
+    color: #fff; 
+}
+
+body.dark-mode .info .ler-mais-btn {
+    background-color: #c91b1b; 
+    color: #fff;
+}
 
 .menu-toggle {
   display: none;
@@ -350,21 +397,12 @@ body.dark-mode .postit {
 .menu-toggle .bar {
   width: 28px;
   height: 4px;
-  background: #333;
+  background: #ffffff;
   border-radius: 5px;
 }
 
-body.dark-mode .menu-toggle .bar {
-  background: #e0e0e0;
-}
-
-/* ===================== RESPONSIVIDADE ===================== */
-
 @media (max-width: 768px) {
-
-  .menu-toggle {
-    display: flex;
-  }
+  .menu-toggle { display: flex; }
 
   .menu-direita nav {
     display: none;
@@ -374,18 +412,14 @@ body.dark-mode .menu-toggle .bar {
     background: #ffffff;
     padding: 15px;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     flex-direction: column;
     gap: 15px;
     z-index: 999;
   }
 
+  .menu-direita nav.active { display: flex; }
+
   body.dark-mode .menu-direita nav {
     background: #1f1f1f;
-    border: 1px solid #333;
-  }
-
-  .menu-direita nav.active {
-    display: flex;
   }
 }
