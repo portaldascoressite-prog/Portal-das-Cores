@@ -1,8 +1,9 @@
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Enriqueta', serif;
 }
 
 html, body {
@@ -18,6 +19,12 @@ body {
   line-height: 1.6;
 }
 
+.status-msg {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
 header {
   display: flex;
   justify-content: space-between;
@@ -25,10 +32,6 @@ header {
   padding: 15px 50px;
   background: #dddddd;
   border-bottom: 1px solid #ccc;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
 }
 
 header .logo {
@@ -51,19 +54,155 @@ header .logo span {
 .menu-direita {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 20px;
+}
+
+
+header nav {
+  display: flex;
+  gap: 20px;
 }
 
 header nav a {
-  margin-left: 20px;
   color: #333333;
   text-decoration: none;
   transition: 0.3s;
+  font-weight: 500;
 }
 
 header nav a:hover {
   color: #de1e1e;
 }
+
+.theme-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.theme-btn:hover {
+  transform: scale(1.2);
+}
+
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-toggle .bar {
+  width: 28px;
+  height: 4px;
+  background: #333;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle { display: flex; }
+
+  .menu-direita nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 999;
+  }
+
+  .menu-direita nav.active { display: flex; }
+
+  body.dark-mode .menu-direita nav {
+    background: #1f1f1f;
+  }
+
+  
+  header nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    gap: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 999;
+  }
+
+  header nav.active {
+    display: flex;
+  }
+
+  body.dark-mode header nav {
+    background: #1f1f1f;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+/* -----------------------
+      DARK MODE
+------------------------ */
+
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode header {
+  background: #1e1e1e;
+  border-bottom: 1px solid #333;
+}
+
+body.dark-mode nav a {
+  color: #ddd;
+}
+
+body.dark-mode nav a:hover {
+  color: #ff5252;
+}
+
+body.dark-mode .menu-toggle .bar {
+  background: #e0e0e0;
+}
+body.dark-mode .anonimo-links h1 {
+    color: #ffffff;
+}
+
+body.dark-mode .anonimo-links .anonimo-descricao {
+    color: #e0e0e0; 
+}
+
+
+footer {
+  background: #dddddd;
+  border-top: 1px solid #ccc;
+  padding: 15px 50px;
+  text-align: center;
+  color: #333333;
+  font-size: 1rem;
+  margin-top: auto;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode footer {
+  background: #1e1e1e;
+  border-top: 1px solid #333;
+  color: #ccc;
+}
+
+
 
 main {
   display: flex;
@@ -76,17 +215,6 @@ main {
 
 h1, h2 {
   color: #000000;
-}
-
-footer {
-  background: #dddddd;
-  border-top: 1px solid #ccc;
-  padding: 15px 50px;
-  text-align: center;
-  color: #333333;
-  font-size: 1rem;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-  width: 100%;
 }
 
 .anonimo-links {
@@ -161,113 +289,4 @@ footer {
 
 .postit-btn:hover {
   background-color: #45a049;
-}
-
-.menu-toggle {
-  display: none;
-}
-
-/* ==============================
-   ###  DARK MODE
-   ============================== */
-
-body.dark-mode {
-  background-color: #121212;
-  color: #e0e0e0;
-}
-
-body.dark-mode header {
-  background: #1e1e1e;
-  border-bottom: 1px solid #333;
-}
-
-body.dark-mode footer {
-  background: #1e1e1e;
-  border-top: 1px solid #333;
-  color: #ccc;
-}
-
-body.dark-mode nav a {
-  color: #ddd;
-}
-
-body.dark-mode nav a:hover {
-  color: #ff5252;
-}
-
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode .anonimo-descricao {
-  color: #e0e0e0;
-}
-
-body.dark-mode .postit {
-  background-color: #ffc;
-  border-top: 5px solid #ff0;
-  color: #f1f1f1;
-}
-
-.theme-btn {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  margin-left: 15px;
-  transition: transform 0.2s;
-}
-
-.theme-btn:hover {
-  transform: scale(1.2);
-}
-
-/* ===================== MENU HAMBÚRGUER ===================== */
-
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
-
-.menu-toggle .bar {
-  width: 28px;
-  height: 4px;
-  background: #333;
-  border-radius: 5px;
-}
-
-body.dark-mode .menu-toggle .bar {
-  background: #e0e0e0;
-}
-
-/* ===================== RESPONSIVIDADE ===================== */
-
-@media (max-width: 768px) {
-
-  .menu-toggle {
-    display: flex;
-  }
-
-  .menu-direita nav {
-    display: none;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    background: #ffffff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    flex-direction: column;
-    gap: 15px;
-    z-index: 999;
-  }
-
-  body.dark-mode .menu-direita nav {
-    background: #1f1f1f;
-    border: 1px solid #333;
-  }
-
-  .menu-direita nav.active {
-    display: flex;
-  }
 }
