@@ -1,3 +1,7 @@
+/* =========================================================
+   RESET
+========================================================= */
+
 * {
   margin: 0;
   padding: 0;
@@ -14,23 +18,25 @@ body {
   flex-direction: column;
   min-height: 100vh;
   background-color: #ffffff;
-  color: #222222;
+  color: #222;
   line-height: 1.6;
 }
 
-/* ===================== HEADER ===================== */
+/* =========================================================
+   HEADER
+========================================================= */
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 50px;
-  background: #dddddd;
+  background: #ddd;
   border-bottom: 1px solid #ccc;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 header .logo {
@@ -53,7 +59,7 @@ header .logo span {
 .menu-direita {
   display: flex;
   align-items: center;
-  gap: 20px; /* distância entre menu e botão */
+  gap: 20px;
 }
 
 header nav {
@@ -62,17 +68,39 @@ header nav {
 }
 
 header nav a {
-  color: #333333;
+  color: #333;
   text-decoration: none;
-  transition: 0.3s;
   font-weight: 500;
+  transition: 0.3s;
 }
 
 header nav a:hover {
   color: #de1e1e;
 }
 
-/* ===================== MAIN ===================== */
+/* ================= MENU HAMBÚRGUER ================= */
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-toggle .bar {
+  width: 28px;
+  height: 3px;
+  background: #333;
+  transition: 0.3s;
+}
+
+body.dark-mode .menu-toggle .bar {
+  background: #fff;
+}
+
+/* =========================================================
+   MAIN
+========================================================= */
 
 main {
   display: flex;
@@ -84,28 +112,12 @@ main {
 }
 
 h1, h2 {
-  color: #000000;
+  color: #000;
 }
-
-/* ===================== FOOTER ===================== */
-
-footer {
-  background: #dddddd;
-  border-top: 1px solid #ccc;
-  padding: 15px 50px;
-  text-align: center;
-  color: #333333;
-  font-size: 1rem;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-  width: 100%;
-}
-
-/* ===================== SEÇÃO PRINCIPAL ===================== */
 
 .main-content {
   display: flex;
   flex-direction: column;
-  flex: 1;
   max-width: 600px;
 }
 
@@ -116,9 +128,9 @@ footer {
 .info .tag {
   background: #de1e1e;
   color: #fff;
-  font-size: 0.9rem;
   padding: 5px 12px;
   border-radius: 15px;
+  font-size: 0.9rem;
 }
 
 .info h1 {
@@ -129,40 +141,39 @@ footer {
 .info h1 span {
   display: block;
   font-size: 1.5rem;
-  font-weight: normal;
-  color: #555555;
+  color: #555;
   margin-top: 5px;
 }
 
 .info p {
   font-size: 1.2rem;
-  color: #555555;
+  color: #555;
   margin-top: 10px;
 }
 
 .ler-mais-btn {
-  background-color: #de1e1e;
-  color: #ffffff;
+  background: #de1e1e;
+  color: #fff;
   border: none;
   padding: 12px 25px;
   border-radius: 5px;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
   margin-top: 20px;
+  transition: 0.3s;
 }
 
 .ler-mais-btn:hover {
-  background-color: #c91b1b;
+  background: #c91b1b;
 }
 
 .hero-img {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1;
   max-width: 400px;
+  flex: 1;
 }
 
 .hero-img img {
@@ -170,13 +181,15 @@ footer {
   border-radius: 10px;
 }
 
-/* ===================== SESSÃO SOBRE ===================== */
+/* =========================================================
+   SEÇÃO SOBRE
+========================================================= */
 
 #sobre-empresa {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transition: all 0.6s ease;
+  transition: 0.6s ease;
 }
 
 #sobre-empresa.ativa {
@@ -189,12 +202,12 @@ footer {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transition: max-height 0.6s ease, opacity 0.6s ease;
+  transition: 0.6s ease;
   margin-top: 20px;
 }
 
 .sobre.ativa {
-  max-height: 300px; 
+  max-height: 300px;
   opacity: 1;
 }
 
@@ -207,100 +220,96 @@ footer {
 .sobre p {
   font-size: 1.1rem;
   color: #555;
+  text-align: center;
   max-width: 700px;
   margin: 0 auto;
-  text-align: center;
 }
 
-/* ===================== CARROSSEL ===================== */
+/* =========================================================
+   GALERIA / CARROSSEL
+========================================================= */
 
 .galeria-fotos {
   padding: 60px 50px;
   text-align: center;
-  background-color: #dddddd; /* Mesmo cinza do header */
-}
-
-.galeria-fotos h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
+  background: #ddd;
 }
 
 .carrossel-container {
   position: relative;
   max-width: 800px;
+  height: 350px;
   margin: 0 auto;
   overflow: hidden;
-  height: 350px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .carrossel-img {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1s;
 }
 
 .carrossel-img.active {
   opacity: 1;
 }
 
-/* ===================== VÍDEOS ===================== */
+/* =========================================================
+   VÍDEOS
+========================================================= */
 
 .videos {
   padding: 60px 50px;
   text-align: center;
 }
 
-.videos h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-}
-
 .video-card {
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
-  overflow: hidden;
-  max-width: 100%;
-  background: #000;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .video-card iframe {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
 }
 
-/* ===================== MODO ESCURO ===================== */
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+  background: #ddd;
+  border-top: 1px solid #ccc;
+  padding: 15px 50px;
+  text-align: center;
+  color: #333;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+/* =========================================================
+   MODO ESCURO
+========================================================= */
 
 body.dark-mode {
-  background-color: #121212;
+  background: #121212;
   color: #e0e0e0;
 }
 
-body.dark-mode header {
-  background: #1e1e1e;
-  border-bottom: 1px solid #333;
-}
-
-body.dark-mode footer {
-  background: #1e1e1e;
-  border-top: 1px solid #333;
-  color: #ccc;
-}
-
+body.dark-mode header,
+body.dark-mode footer,
 body.dark-mode .galeria-fotos {
-  background-color: #1e1e1e; /* Cinza escuro igual ao header */
+  background: #1e1e1e;
+  border-color: #333;
 }
 
 body.dark-mode nav a {
@@ -311,63 +320,15 @@ body.dark-mode nav a:hover {
   color: #ff5252;
 }
 
-body.dark-mode .info p,
-body.dark-mode .sobre p,
 body.dark-mode h1,
-body.dark-mode h2 {
+body.dark-mode h2,
+body.dark-mode p {
   color: #e0e0e0;
 }
 
-body.dark-mode .mapa {
-  background: #1c1c1c;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .postit {
-  background-color: #444;
-  border-top: 5px solid #666;
-  color: #f1f1f1;
-}
-
-/* BOTÃO DO MODO ESCURO */
-.theme-btn {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.theme-btn:hover {
-  transform: scale(1.2);
-}
-
-/* ===================== MENU HAMBÚRGUER ===================== */
-
-@media (max-width: 768px) {
-  .menu-toggle { display: flex; }
-
-  .menu-direita nav {
-    display: none;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    background: #ffffff;
-    padding: 15px;
-    border-radius: 10px;
-    flex-direction: column;
-    gap: 15px;
-    z-index: 999;
-  }
-
-  .menu-direita nav.active { display: flex; }
-
-  body.dark-mode .menu-direita nav {
-    background: #1f1f1f;
-  }
-}
-
-/* ===================== RESPONSIVIDADE ===================== */
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
 
 @media (max-width: 768px) {
 
@@ -375,30 +336,35 @@ body.dark-mode .postit {
     display: flex;
   }
 
-  .menu-direita nav {
+  header nav {
     display: none;
     position: absolute;
     top: 70px;
     right: 20px;
-    background: #ffffff;
+    background: #fff;
+    flex-direction: column;
     padding: 15px;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    flex-direction: column;
     gap: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     z-index: 999;
-  }
-
-  body.dark-mode .menu-direita nav {
-    background: #1f1f1f;
-    border: 1px solid #333;
   }
 
   .menu-direita nav.active {
     display: flex;
   }
+
+  body.dark-mode header nav {
+    background: #1f1f1f;
+    border: 1px solid #333;
+  }
+
+  main {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-img {
+    margin-top: 30px;
+  }
 }
-
-
-
-
