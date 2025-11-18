@@ -50,7 +50,6 @@ header .logo span {
   text-transform: uppercase;
 }
 
-/* ======== MENU À DIREITA (CORRIGIDO) ======== */
 .menu-direita {
   display: flex;
   align-items: center;
@@ -345,22 +344,27 @@ body.dark-mode .postit {
 
 /* ===================== MENU HAMBÚRGUER ===================== */
 
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
+@media (max-width: 768px) {
+  .menu-toggle { display: flex; }
 
-.menu-toggle .bar {
-  width: 28px;
-  height: 4px;
-  background: #333;
-  border-radius: 5px;
-}
+  .menu-direita nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 999;
+  }
 
-body.dark-mode .menu-toggle .bar {
-  background: #e0e0e0;
+  .menu-direita nav.active { display: flex; }
+
+  body.dark-mode .menu-direita nav {
+    background: #1f1f1f;
+  }
 }
 
 /* ===================== RESPONSIVIDADE ===================== */
@@ -394,6 +398,7 @@ body.dark-mode .menu-toggle .bar {
     display: flex;
   }
 }
+
 
 
 
