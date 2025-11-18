@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Enriqueta', serif;
 }
 
 html, body {
@@ -27,12 +27,10 @@ header {
   border-bottom: 1px solid #ccc;
 }
 
-
 .menu-direita {
   display: flex;
   align-items: center;
-  gap: 5px;
-  margin-left: auto;
+  gap: 20px;
 }
 
 header .logo {
@@ -58,7 +56,7 @@ header nav {
 }
 
 header nav a {
-   color: #333333;
+  color: #333333;
   text-decoration: none;
   transition: 0.3s;
   font-weight: 500;
@@ -75,13 +73,14 @@ main {
   align-items: center;
   padding: 60px 50px;
   flex-wrap: wrap;
-  flex: 1; 
+  flex: 1;
 }
 
 h1, h2 {
   color: #000000;
 }
 
+/* ===== FOOTER ===== */
 
 footer {
   background: #dddddd;
@@ -93,6 +92,85 @@ footer {
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
   width: 100%;
 }
+
+/* ============================================================
+                       RESPONSIVIDADE
+   ============================================================ */
+
+/* ===== Tablets (até 992px) ===== */
+@media (max-width: 992px) {
+
+  header {
+    padding: 15px 30px;
+  }
+
+  header nav {
+    gap: 15px;
+  }
+
+  main {
+    padding: 40px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* mantém a linha do logo e menu, apenas ajusta o padding */
+  header {
+    padding: 15px 30px;
+  }
+
+  header nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 999;
+  }
+
+  header nav.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  body.dark-mode header nav {
+    background: #1f1f1f;
+  }
+}
+
+
+/* ===== Celulares pequenos (até 480px) ===== */
+@media (max-width: 480px) {
+
+  header {
+    padding: 10px 20px;
+  }
+
+  header .logo span {
+    font-size: 1.2rem;
+  }
+
+  header nav {
+    gap: 10px;
+  }
+
+  main {
+    padding: 20px 15px;
+  }
+
+  footer {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
 
 .localizacao {
   text-align: center;
@@ -128,6 +206,27 @@ footer {
   border-radius: 8px;
   display: block;
 }
+
+@media (max-width: 768px) {
+  .mapa {
+    padding: 15px;
+  }
+
+  .mapa iframe {
+    height: 450px;   
+  }
+}
+
+@media (max-width: 480px) {
+  .mapa {
+    padding: 10px;
+  }
+
+  .mapa iframe {
+    height: 320px;   
+  }
+}
+
 
 body.dark-mode {
   background-color: #121212;
@@ -184,3 +283,75 @@ body.dark-mode .postit {
   transform: scale(1.2);
 }
 
+/* ===================== MENU HAMBÚRGUER ===================== */
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-toggle .bar {
+  width: 28px;
+  height: 4px;
+  background: #333;
+  border-radius: 5px;
+}
+
+body.dark-mode .menu-toggle .bar {
+  background: #e0e0e0;
+}
+
+/* ===================== RESPONSIVIDADE ===================== */
+
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .menu-direita nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    flex-direction: column;
+    gap: 15px;
+    z-index: 999;
+  }
+
+  body.dark-mode .menu-direita nav {
+    background: #1f1f1f;
+    border: 1px solid #333;
+  }
+
+  .menu-direita nav.active {
+    display: flex;
+  }
+}
+.distancia-btn {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #0056b3;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.distancia-btn:hover {
+    background-color: #003f82;
+}
+
+.distancia-resultado {
+    font-size: 18px;
+    margin-top: 15px;
+    font-weight: bold;
+}
