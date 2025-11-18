@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal das Cores - Mensagem Anônima</title>
     <link rel="stylesheet" href="anonimo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Enriqueta:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -14,20 +17,18 @@
             <span>Portal das Cores</span>
         </div>
 
-        <div class="menu-toggle" onclick="toggleMenu()">
+        <div class="menu-direita">
+            <div class="menu-toggle" onclick="toggleMenu()">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
         </div>
-
-        <div class="menu-direita">
             <nav id="main-nav">
                 <a href="index.html">Home</a>
                 <a href="contato.html">Contatos</a>
                 <a href="localizacao.html">Localização</a>
             </nav>
             <button id="theme-toggle" class="theme-btn" onclick="toggleTheme()">🌙</button>
-            </div>
         </div>
     </header>
 
@@ -37,11 +38,12 @@
             <p class="anonimo-descricao">Mande uma mensagem sobre o que achou do site. Basta escrever no bloco amarelo e enviar.</p>
             
             <div class="postit-container">
-                <form action="https://formspree.io/f/meorlonl" method="POST" class="postit">
+                <form id="formAnonimo" class="postit">
                     <h3>Mensagem Anônima</h3>
                     <textarea name="mensagem" rows="8" required placeholder="Escreva sua mensagem aqui..."></textarea>
                     <button type="submit" class="postit-btn">Enviar</button>
                     <input type="hidden" name="_subject" value="Nova Mensagem Anônima (Post-it)">
+                    <p id="statusAnonimo" class="status-msg"></p>
                 </form>
             </div>
         </section>
@@ -78,6 +80,72 @@
                 document.getElementById('theme-toggle').textContent = '☀️';
             }
         };
+
+const formularioAnonimo = document.getElementById("formAnonimo");
+const statusMsg = document.getElementById("statusAnonimo");
+
+formularioAnonimo.addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const textarea = document.querySelector("textarea[name='mensagem']");
+    const texto = textarea.value.trim();
+    const msgMinuscula = texto.toLowerCase();
+
+
+    function erro(msg) {
+        statusMsg.textContent = msg;
+        statusMsg.style.color = "red";
+    }
+
+    function sucesso(msg) {
+        statusMsg.textContent = msg;
+        statusMsg.style.color = "green";
+    }
+
+    const proibidas = ["banana", "paspalho", "burro"];
+    if (proibidas.some(p => msgMinuscula.includes(p))) {
+        erro("Por favor, evite palavras ofensivas.");
+        return;
+    }
+
+    const especial = ["gg gatinho", "gean gatinho", "gean ganhou de emerson no fifa"];
+    if (especial.some(p => msgMinuscula.includes(p))) {
+        erro("Máximo de respeitinho a Gean 😼🔥");
+        return;
+    }
+
+    if (texto === texto.toUpperCase() && texto.length > 3) {
+        erro("Evite enviar mensagens inteiramente em maiúsculas.");
+        return;
+    }
+
+    if (texto.length > 300) {
+        erro("Sua mensagem não pode exceder 300 caracteres.");
+        return;
+    }
+
+    if (texto.replace(/\s+/g, "").length === 0) {
+        erro("A mensagem não pode estar vazia.");
+        return;
+    }
+
+    try {
+        const response = await fetch("https://formspree.io/f/meorlonl", {
+            method: "POST",
+            headers: { "Accept": "application/json" },
+            body: new FormData(formularioAnonimo)
+        });
+
+        if (response.ok) {
+            sucesso("Mensagem enviada com sucesso!");
+            textarea.value = "";
+        } else {
+            erro("Erro ao enviar a mensagem. Tente novamente.");
+        }
+
+    } catch (error) {
+        erro("Erro de conexão. Verifique sua internet.");
+    }
+});
+
     </script>
-</body>
-</html>
