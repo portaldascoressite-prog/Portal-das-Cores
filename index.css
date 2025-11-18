@@ -378,11 +378,8 @@ body.dark-mode .info h1 span {
     color: #cccccc; 
 }
 
-body.dark-mode .info p,
-body.dark-mode .sobre p,
-body.dark-mode h1,
-body.dark-mode h2 {
-  color: #e0e0e0;
+body.dark-mode .videos h2 {
+  color: #ffffff;
 }
 
 body.dark-mode .info p {
@@ -435,5 +432,6 @@ body.dark-mode .info .ler-mais-btn {
     background: #1f1f1f;
   }
 }
+
 
 
