@@ -265,6 +265,7 @@ footer {
 .galeria-fotos {
   padding: 60px 50px;
   text-align: center;
+  background-color: #dddddd; /* Mesmo cinza do header */
 }
 
 .galeria-fotos h2 {
@@ -335,6 +336,10 @@ body.dark-mode {
 body.dark-mode header {
   background: #1e1e1e;
   border-bottom: 1px solid #333;
+}
+
+body.dark-mode .galeria-fotos {
+  background-color: #1e1e1e; /* Mesmo fundo escuro do header */
 }
 
 body.dark-mode footer {
@@ -423,3 +428,4 @@ body.dark-mode .info .ler-mais-btn {
     background: #1f1f1f;
   }
 }
+
