@@ -403,10 +403,10 @@ body.dark-mode .info .ler-mais-btn {
   cursor: pointer;
 }
 
-.menu-toggle .bar {
+menu-toggle .bar {
   width: 28px;
   height: 4px;
-  background: #ffffff;
+  background: #333;
   border-radius: 5px;
 }
 
@@ -432,6 +432,7 @@ body.dark-mode .info .ler-mais-btn {
     background: #1f1f1f;
   }
 }
+
 
 
 
